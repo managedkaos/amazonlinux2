@@ -1,0 +1,4 @@
+#cloud-config
+chpasswd:
+  list: |
+    ec2-user:changeit
