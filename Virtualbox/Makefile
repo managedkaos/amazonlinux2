@@ -16,7 +16,7 @@ $(vm).txt : $(iso) $(vdi)
 	$(vbox) modifyvm $(vm) --boot1 dvd --boot2 disk
 	$(vbox) modifyvm $(vm) --memory 1024 --vram 128
 	$(vbox) modifyvm $(vm) --nic1 NAT
-	$(vbox) modifyvm $(vm) --natpf1 "ssh,tcp,,2222,,22"
+	$(vbox) modifyvm $(vm) --natpf1 "ssh,tcp,127.0.0.1,2222,,22"
 	$(vbox) showvminfo $(vm) > $(vm).txt
 
 $(iso) : ./config/meta-data ./config/user-data
