@@ -2,6 +2,8 @@
 *.txt
 *.iso
 *.vdi
+*.ovf
+*.vmdk
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
