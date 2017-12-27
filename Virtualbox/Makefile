@@ -10,8 +10,11 @@ $(vm).ovf : $(vm).txt
 	$(vbox) startvm $(vm) --type headless || exit 0
 	sleep 60
 	$(vbox) controlvm $(vm) acpipowerbutton || exit 0
-	sleep 60
+	sleep 6
 	$(vbox) export $(vm) -o $(vm).ovf
+	$(vbox) storageattach $(vm) --storagectl SATA --port 0 --device 0 --medium none || exit 0
+	$(vbox) storageattach $(vm) --storagectl IDE  --port 0 --device 0 --medium none || exit 0
+	$(vbox) unregistervm  $(vm) --delete || exit 0
 
 $(vm).txt : $(iso) $(vdi)
 	$(vbox) createvm --name $(vm) --ostype Linux26_64 --register
