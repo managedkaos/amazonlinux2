@@ -1,0 +1,14 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "../Virtualbox/Amazon-Linux-2.ovf",
+      "ssh_username": "vagrant",
+      "ssh_port":"2222",
+      "ssh_private_key_file": "vagrant.pem",
+      "shutdown_command": "sudo shutdown -h now",
+      "guest_additions_path": "/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso"
+    }
+  ],
+  "post-processors": ["vagrant"]
+}
