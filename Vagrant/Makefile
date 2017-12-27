@@ -12,7 +12,7 @@ validate : $(packer_json)
 	$(packer) validate $(packer_json)
 
 clean :
-	echo "clean :D"
+	true
 
 cleanall : clean
-	echo "clean :D"
+	true
