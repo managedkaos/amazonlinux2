@@ -4,6 +4,7 @@
 *.vdi
 *.ovf
 *.vmdk
+packer_cache/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
