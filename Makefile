@@ -1,7 +1,7 @@
 export vm   = Amazon-Linux-2
 export vbox = VBoxManage
 
-SUBDIRS   = Virtualbox
+SUBDIRS   = Virtualbox Vagrant
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 CLEANALLDIRS = $(SUBDIRS:%=cleanall-%)
 

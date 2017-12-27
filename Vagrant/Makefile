@@ -1,21 +1,18 @@
-vm   = Amazon-Linux-2
-vbox = VBoxManage
-port = 2222
-key  = ../vagrant.key
-iso  = /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+vm          = Amazon-Linux-2
+packer      = /usr/local/bin/packer
+packer_json = ./packer.json
 
-.PHONY : startvm
+.PHONY : clean
+.PHONY : validate build
 
-#startvm : vboxguestadditions
-#	$(vbox) startvm $(vm) --type headless || exit 0
+build : validate ../Virtualbox/$(vm).ovf
+	PACKER_LOG=$(PACKER_LOG) $(packer) build $(packer_json)
 
-#ssh:
-#	ssh vagrant@127.0.0.1 -p $(port) -i $(key) 'df -h'
+validate : $(packer_json)
+	$(packer) validate $(packer_json)
 
-#vboxguestadditions:
-#	$(vbox) storageattach $(vm) --storagectl IDE --port 0 --device 0 --type dvddrive --medium emptydrive
-#	$(vbox) storageattach $(vm) --storagectl IDE --port 0 --device 0 --type dvddrive --medium $(iso)
+clean :
+	echo "clean :D"
 
-#clean:
-#	$(vbox) controlvm $(vm) acpipowerbutton || exit 0
-
+cleanall : clean
+	echo "clean :D"
